@@ -3,24 +3,24 @@ ui: qunit
 scripts:
   - "https://code.jquery.com/jquery-2.1.4.min.js"
   - "https://code.jquery.com/qunit/qunit-1.20.0.js"
-  - "js/photo-histogram.js"
+  - "lib/photo-histogram.js"
 html: "test/zuulTemplate.html"
 browsers:
   - name: ipad
-    version: 5.1..latest
+    version: 9.0..latest
   - name: firefox
-    version: 4..latest
+    version: 35..latest
   - name: iphone
-    version: 5.1..latest
+    version: 9.0..latest
   - name: safari
-    version: 5..latest
+    version: 9..latest
   - name: chrome
-    version: 26..latest
+    version: 40..latest
   - name: internet explorer
-    version: 6..latest
+    version: 9..latest
   - name: microsoftedge
     version: 20..latest
   - name: opera
     version: 11..latest
   - name: android
-    version: 4.0..latest
+    version: 5.0..latest

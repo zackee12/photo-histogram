@@ -8,7 +8,7 @@ JS widget library written in Typescript to create histograms from canvas and ima
 <html>
 <head>
     ...
-    <link rel="stylesheet" href="//code.jquery.com/qunit/qunit-1.20.0.css">
+    <link rel="stylesheet" type="text/css" href="photo-histogram.css">
 </head>
 <body>
     ...
@@ -34,5 +34,5 @@ JS widget library written in Typescript to create histograms from canvas and ima
     var histogram2 = new PhotoHistogram.Ui(dst2, src2);
 ```
 
-## Browser Support
+## Broswer Support
 [![Selenium Test Status](https://saucelabs.com/browser-matrix/zackee12.svg)](https://saucelabs.com/u/zackee12)
