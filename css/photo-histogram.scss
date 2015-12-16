@@ -1,0 +1,166 @@
+$font-stack: Consolas, monospace;
+$background-color: #525252;
+$border-color: #000;
+$text-color: #FFF;
+$controls-padding-left-right: 2.5%;
+$border-radius: 2px;
+$svg-height: 200px;
+
+
+.histogram-container {
+  min-width: 300px;
+  width: 100%;
+
+  font-family: $font-stack;
+  font-size: 1em;
+
+  border: 2px solid $border-color;
+  border-radius: $border-radius;
+
+  background-color: $background-color;
+  color: $text-color;
+
+  .fa {
+    background-repeat: no-repeat;
+    background-position: center;
+    display: inline-block;
+    background-size: 1em;
+    width: 1em;
+    height: 1em;
+  }
+
+  .fa.fa-refresh {
+    background-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iOCIgaGVpZ2h0PSI4IiB2aWV3Qm94PSIwIDAgMTc5MiAxNzkyIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxwYXRoIGQ9Ik0xNjM5IDEwNTZxMCA1LTEgNy02NCAyNjgtMjY4IDQzNC41dC00NzggMTY2LjVxLTE0NiAwLTI4Mi41LTU1dC0yNDMuNS0xNTdsLTEyOSAxMjlxLTE5IDE5LTQ1IDE5dC00NS0xOS0xOS00NXYtNDQ4cTAtMjYgMTktNDV0NDUtMTloNDQ4cTI2IDAgNDUgMTl0MTkgNDUtMTkgNDVsLTEzNyAxMzdxNzEgNjYgMTYxIDEwMnQxODcgMzZxMTM0IDAgMjUwLTY1dDE4Ni0xNzlxMTEtMTcgNTMtMTE3IDgtMjMgMzAtMjNoMTkycTEzIDAgMjIuNSA5LjV0OS41IDIyLjV6bTI1LTgwMHY0NDhxMCAyNi0xOSA0NXQtNDUgMTloLTQ0OHEtMjYgMC00NS0xOXQtMTktNDUgMTktNDVsMTM4LTEzOHEtMTQ4LTEzNy0zNDktMTM3LTEzNCAwLTI1MCA2NXQtMTg2IDE3OXEtMTEgMTctNTMgMTE3LTggMjMtMzAgMjNoLTE5OXEtMTMgMC0yMi41LTkuNXQtOS41LTIyLjV2LTdxNjUtMjY4IDI3MC00MzQuNXQ0ODAtMTY2LjVxMTQ2IDAgMjg0IDU1LjV0MjQ1IDE1Ni41bDEzMC0xMjlxMTktMTkgNDUtMTl0NDUgMTkgMTkgNDV6IiBmaWxsPSIjRkZGIi8+PC9zdmc+");
+  }
+
+  .fa.fa-bars {
+    background-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iOCIgaGVpZ2h0PSI4IiB2aWV3Qm94PSIwIDAgMTc5MiAxNzkyIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxwYXRoIGQ9Ik0xNjY0IDEzNDR2MTI4cTAgMjYtMTkgNDV0LTQ1IDE5aC0xNDA4cS0yNiAwLTQ1LTE5dC0xOS00NXYtMTI4cTAtMjYgMTktNDV0NDUtMTloMTQwOHEyNiAwIDQ1IDE5dDE5IDQ1em0wLTUxMnYxMjhxMCAyNi0xOSA0NXQtNDUgMTloLTE0MDhxLTI2IDAtNDUtMTl0LTE5LTQ1di0xMjhxMC0yNiAxOS00NXQ0NS0xOWgxNDA4cTI2IDAgNDUgMTl0MTkgNDV6bTAtNTEydjEyOHEwIDI2LTE5IDQ1dC00NSAxOWgtMTQwOHEtMjYgMC00NS0xOXQtMTktNDV2LTEyOHEwLTI2IDE5LTQ1dDQ1LTE5aDE0MDhxMjYgMCA0NSAxOXQxOSA0NXoiIGZpbGw9IiNmZmYiLz48L3N2Zz4");
+  }
+
+  .fa.fa-bars.gray {
+    background-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iOCIgaGVpZ2h0PSI4IiB2aWV3Qm94PSIwIDAgMTc5MiAxNzkyIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxwYXRoIGQ9Ik0xNjY0IDEzNDR2MTI4cTAgMjYtMTkgNDV0LTQ1IDE5aC0xNDA4cS0yNiAwLTQ1LTE5dC0xOS00NXYtMTI4cTAtMjYgMTktNDV0NDUtMTloMTQwOHEyNiAwIDQ1IDE5dDE5IDQ1em0wLTUxMnYxMjhxMCAyNi0xOSA0NXQtNDUgMTloLTE0MDhxLTI2IDAtNDUtMTl0LTE5LTQ1di0xMjhxMC0yNiAxOS00NXQ0NS0xOWgxNDA4cTI2IDAgNDUgMTl0MTkgNDV6bTAtNTEydjEyOHEwIDI2LTE5IDQ1dC00NSAxOWgtMTQwOHEtMjYgMC00NS0xOXQtMTktNDV2LTEyOHEwLTI2IDE5LTQ1dDQ1LTE5aDE0MDhxMjYgMCA0NSAxOXQxOSA0NXoiIGZpbGw9IiM5NDk0OTQiLz48L3N2Zz4=");
+  }
+
+  label {
+    padding-right: 5px;
+  }
+
+  .hidden {
+    display: none;
+  }
+
+  >.histogram-controls {
+    white-space: nowrap;
+    padding-top: 5px;
+
+    >div {
+      display: inline-block;
+      vertical-align: top;
+      width: 50% - $controls-padding-left-right;
+    }
+
+    >.histogram-channels {
+      padding-left: $controls-padding-left-right;
+
+      label {
+        line-height: 2em;
+      }
+
+      select {
+        font-family: $font-stack;
+        background-color: $background-color;
+        color: $text-color;
+        border-color: $border-color;
+        border-radius: $border-radius;
+        box-shadow: none;
+      }
+    }
+
+    >.histogram-buttons {
+      text-align: right;
+      padding-right: $controls-padding-left-right;
+      height: 2em;
+
+      a.histogram-button {
+        display: inline-block;
+        //line-height: 2em;
+        padding: 0.5em;
+        text-decoration: none;
+        color: $text-color;
+        height: 1em;
+        width: 1em;
+      }
+
+      a.histogram-button:hover,
+      a.histogram-button:active {
+        text-decoration: none;
+        color: $text-color;
+        border-radius: $border-radius;
+        background-color: #727272;
+      }
+
+      i {
+
+      }
+    }
+  }
+  >.histogram {
+    border: 2px solid $border-color;
+    border-radius: $border-radius;
+    height: $svg-height;
+    margin: 5px;
+
+    svg {
+      height: $svg-height;
+      border: 0;
+      margin: 0;
+      overflow: hidden;
+
+    }
+  }
+
+  >.histogram-stats {
+    width: 100%;
+
+    >div {
+      width: 300px;
+      margin: 0 auto;
+      ul {
+        -webkit-column-count: 2;
+        -moz-column-count: 2;
+        column-count: 2;
+
+        -webkit-column-width: auto;
+        -moz-column-width: auto;
+        column-width: auto;
+
+        -webkit-column-gap: 0;
+        -moz-column-gap: 0;
+        column-gap: 0;
+
+        text-align: right;
+        padding: 0 0 0 0;
+        margin: 0 0 5px 0;
+
+        li {
+          display: block;
+          white-space: nowrap;
+
+          input {
+            border: 0;
+            padding: 0;
+            margin: 0 0 0 5px;
+            width: 60px;
+            background-color: $background-color;
+            color: $text-color;
+          }
+
+          input, label {
+            font-size: 0.75em;
+            font-family: $font-stack;
+          }
+        }
+      }
+    }
+  }
+}
