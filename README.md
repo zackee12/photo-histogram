@@ -2,16 +2,21 @@
 JS widget library written in Typescript to create histograms from canvas and image elements with no dependencies.  The design is modeled after Photoshop.
 
 ## Screenshots
-Colors Channel with stats bar
+###Colors Channel with stats bar
+
 ![alt text](https://raw.githubusercontent.com/zackee12/photo-histogram/master/resources/colors_stats.png "Colors channel")
-Colors Channel with stats bar hidden
+
+###Colors Channel with stats bar hidden
+
 ![alt text](https://raw.githubusercontent.com/zackee12/photo-histogram/master/resources/colors_nostats.png "Colors channel")
-Red Channel with options shown
+
+###Red Channel with options shown
+
 ![alt text](https://raw.githubusercontent.com/zackee12/photo-histogram/master/resources/red_stats_channels.png "Red channel")
-Red Channel with a selection
+
+###Red Channel with a selection
+
 ![alt text](https://raw.githubusercontent.com/zackee12/photo-histogram/master/resources/red_stats_selection.png "Red channel")
-
-
 
 ## Usage
 ### HTML
