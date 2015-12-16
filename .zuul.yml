@@ -1,0 +1,12 @@
+name: photo_histogram
+ui: qunit
+scripts:
+  - "https://code.jquery.com/jquery-2.1.4.min.js"
+  - "https://code.jquery.com/qunit/qunit-1.20.0.js"
+  - "js/photo-histogram.js"
+html: "test/zuulTemplate.html"
+browsers:
+  - name: chrome
+    version: 27..latest
+  - name: ie
+    version: latest

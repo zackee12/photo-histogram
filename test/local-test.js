@@ -271,4 +271,4 @@ image.addEventListener('load', function () {
     runTests();
 });
 image.src = 'lena256.png';
-//# sourceMappingURL=test.js.map
+//# sourceMappingURL=local-test.js.map
