@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>photo-histogram</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.3/themes/smoothness/jquery-ui.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="css/photo-histogram.css">
+    <link rel="stylesheet" type="text/css" href="css/app.css">
+</head>
+<body>
+    <div id="page-container">
+        <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <div class="fluid-container">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="https://github.com/zackee12/photo-histogram">Photo Histogram</a>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div id="wrapper">
+                <div id="sidebar-wrapper">
+                    <div id="histContainer"></div>
+                    <div id="sidebar-functions-wrapper">
+                        <div id="sidebar-functions">
+                            <div class="function-group">
+                                <div class="function-group-header">
+                                    <i class="fa fa-caret-down function-group-icon"></i>
+                                    <span class="function-group-title">Basic</span>
+                                    <span id="toggleBasic" class="function-group-toggle"></span>
+                                </div>
+                                <div class="function-group-content">
+                                    <div class="slider">
+                                        <span class="slider-title">Brightness</span>
+                                        <div id="sliderBasicBrightness" class="slider-slider" data-label="labelBasicBrightness"></div>
+                                        <span id="labelBasicBrightness" class="slider-value">-1.000</span>
+                                    </div>
+                                    <div class="slider">
+                                        <span class="slider-title">Contrast</span>
+                                        <div id="sliderBasicContrast" class="slider-slider" data-label="labelBasicContrast"></div>
+                                        <span id="labelBasicContrast" class="slider-value">-1.000</span>
+                                    </div>
+                                    <div class="slider">
+                                        <span class="slider-title">Saturation</span>
+                                        <div id="sliderBasicSaturation" class="slider-slider" data-label="labelBasicSaturation"></div>
+                                        <span id="labelBasicSaturation" class="slider-value">-1.000</span>
+                                    </div>
+                                    <div class="slider">
+                                        <span class="slider-title">Exposure</span>
+                                        <div id="sliderBasicExposure" class="slider-slider" data-label="labelBasicExposure"></div>
+                                        <span id="labelBasicExposure" class="slider-value">-1.000</span>
+                                    </div>
+                                    <div class="slider">
+                                        <span class="slider-title">Gamma</span>
+                                        <div id="sliderBasicGamma" class="slider-slider" data-label="labelBasicGamma"></div>
+                                        <span id="labelBasicGamma" class="slider-value">-1.000</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="function-group">
+                                <div class="function-group-header">
+                                    <i class="fa fa-caret-down function-group-icon"></i>
+                                    <span class="function-group-title">RGB</span>
+                                    <span id="toggleRGB" class="function-group-toggle"></span>
+                                </div>
+                                <div class="function-group-content">
+                                    <div class="slider">
+                                        <span class="slider-title">Red</span>
+                                        <div id="sliderRGBRed" class="slider-slider" data-label="labelRGBRed"></div>
+                                        <span id="labelRGBRed" class="slider-value">-1.000</span>
+                                    </div>
+                                    <div class="slider">
+                                        <span class="slider-title">Green</span>
+                                        <div id="sliderRGBGreen" class="slider-slider" data-label="labelRGBGreen"></div>
+                                        <span id="labelRGBGreen" class="slider-value">-1.000</span>
+                                    </div>
+                                    <div class="slider">
+                                        <span class="slider-title">Blue</span>
+                                        <div id="sliderRGBBlue" class="slider-slider" data-label="labelRGBBlue"></div>
+                                        <span id="labelRGBBlue" class="slider-value">-1.000</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="function-group">
+                                <div class="function-group-header">
+                                    <i class="fa fa-caret-down function-group-icon"></i>
+                                    <span class="function-group-title">HSV</span>
+                                    <span id="toggleHSV" class="function-group-toggle"></span>
+                                </div>
+                                <div class="function-group-content">
+                                    <div class="slider">
+                                        <span class="slider-title">Hue</span>
+                                        <div id="sliderHSVHue" class="slider-slider" data-label="labelHSVHue"></div>
+                                        <span id="labelHSVHue" class="slider-value">-1.000</span>
+                                    </div>
+                                    <div class="slider">
+                                        <span class="slider-title">Saturation</span>
+                                        <div id="sliderHSVSaturation" class="slider-slider" data-label="labelHSVSaturation"></div>
+                                        <span id="labelHSVSaturation" class="slider-value">-1.000</span>
+                                    </div>
+                                    <div class="slider">
+                                        <span class="slider-title">Value</span>
+                                        <div id="sliderHSVValue" class="slider-slider" data-label="labelHSVValue"></div>
+                                        <span id="labelHSVValue" class="slider-value">-1.000</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="function-group">
+                                <div class="function-group-header">
+                                    <i class="fa fa-caret-down function-group-icon"></i>
+                                    <span class="function-group-title">Custom RGB</span>
+                                    <span id="toggleCustomRGB" class="function-group-toggle off"></span>
+                                </div>
+                                <div class="function-group-content">
+                                    <div class="slider">
+                                        <span class="slider-title">Red</span>
+                                        <div id="sliderCustomRGBRed" class="slider-slider slider-rgb"></div>
+                                    </div>
+                                    <div class="slider">
+                                        <span class="slider-title">Green</span>
+                                        <div id="sliderCustomRGBGreen" class="slider-slider slider-rgb"></div>
+                                    </div>
+                                    <div class="slider">
+                                        <span class="slider-title">Blue</span>
+                                        <div id="sliderCustomRGBBlue" class="slider-slider slider-rgb"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="page-content-wrapper">
+                    <div class="page-content">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <canvas id="canvas"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <script>
+        var $buoop = {vs:{i:9,f:35,o:12.1,s:7},c:2};
+        function $buo_f(){
+            var e = document.createElement("script");
+            e.src = "//browser-update.org/update.min.js";
+            document.body.appendChild(e);
+        };
+        try {document.addEventListener("DOMContentLoaded", $buo_f,false)}
+        catch(e){window.attachEvent("onload", $buo_f)}
+    </script>
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <script src="js/photo-histogram.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
