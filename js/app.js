@@ -225,6 +225,12 @@ function toggleInit(id, onClick) {
     });
 }
 $(document).ready(function () {
+    $('#sidebar-functions').height($(document).height() - 50 - 256 - 24);
+    $(window).resize(function () {
+        $('#sidebar-functions').height($(document).height() - 50 - 256 - 24);
+        $('#sidebar-functions').perfectScrollbar('update');
+    });
+    $('#sidebar-functions').perfectScrollbar();
     var div = document.getElementById('histContainer');
     var image = new Image();
     image.addEventListener('load', function () {
