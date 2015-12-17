@@ -1,5 +1,10 @@
+[![Build Status](https://travis-ci.org/zackee12/photo-histogram.svg?branch=master)](https://travis-ci.org/zackee12/photo-histogram)
+
 # Photo Histogram
 JS widget library written in Typescript to create histograms from canvas and image elements with no dependencies.  The design is modeled after Photoshop.
+
+## Example Site (Requires recent browser with WebGL support)
+[GitHub Pages Site!](http://zackee12.github.io/photo-histogram/)
 
 ## Screenshots
 ###Colors Channel with stats bar

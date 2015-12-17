@@ -2,31 +2,51 @@ $font-stack: Consolas, monospace;
 $background-color: #525252;
 $border-color: #000;
 $text-color: #FFF;
-$controls-padding-left-right: 2.5%;
+$btn-active-color: #727272;
+$controls-padding-left-right: 5%;
+$border-size: 2px;
+$border: $border-size solid $border-color;
 $border-radius: 2px;
-$svg-height: 200px;
+$margin-size: 5px;
+$icon-size: 1em;
+$stats-input-size: 60px;
+$widget-min-width: 300px;
+$widget-min-height: 150px;
+//$svg-height: 200px;
 
 
 .histogram-container {
-  min-width: 300px;
+  min-height: $widget-min-height;
+  height: 256px;
+  min-width: $widget-min-width;
   width: 100%;
 
   font-family: $font-stack;
-  font-size: 1em;
-
-  border: 2px solid $border-color;
+  font-size: 16px;
+  border: $border;
   border-radius: $border-radius;
 
   background-color: $background-color;
   color: $text-color;
 
+  *, *:before, *:after {
+    /* Chrome 9-, Safari 5-, iOS 4.2-, Android 3-, Blackberry 7- */
+    -webkit-box-sizing: border-box;
+
+    /* Firefox (desktop or Android) 28- */
+    -moz-box-sizing: border-box;
+
+    /* Firefox 29+, IE 8+, Chrome 10+, Safari 5.1+, Opera 9.5+, iOS 5+, Opera Mini Anything, Blackberry 10+, Android 4+ */
+    box-sizing: border-box;
+  }
+
   .fa {
     background-repeat: no-repeat;
     background-position: center;
     display: inline-block;
-    background-size: 1em;
-    width: 1em;
-    height: 1em;
+    background-size: $icon-size;
+    width: $icon-size;
+    height: $icon-size;
   }
 
   .fa.fa-refresh {
@@ -42,7 +62,8 @@ $svg-height: 200px;
   }
 
   label {
-    padding-right: 5px;
+    padding-right: $margin-size;
+    margin: 0;
   }
 
   .hidden {
@@ -51,16 +72,19 @@ $svg-height: 200px;
 
   >.histogram-controls {
     white-space: nowrap;
-    padding-top: 5px;
+    padding-top: $margin-size;
 
     >div {
       display: inline-block;
       vertical-align: top;
-      width: 50% - $controls-padding-left-right;
+      width: 50%;
     }
 
     >.histogram-channels {
       padding-left: $controls-padding-left-right;
+      // overflows into .histogram-buttons when widget is small
+      z-index: 1;
+      position: relative;
 
       label {
         line-height: 2em;
@@ -72,7 +96,6 @@ $svg-height: 200px;
         color: $text-color;
         border-color: $border-color;
         border-radius: $border-radius;
-        box-shadow: none;
       }
     }
 
@@ -80,15 +103,16 @@ $svg-height: 200px;
       text-align: right;
       padding-right: $controls-padding-left-right;
       height: 2em;
+      z-index: 0;
+      position: relative;
 
       a.histogram-button {
         display: inline-block;
-        //line-height: 2em;
         padding: 0.5em;
         text-decoration: none;
         color: $text-color;
-        height: 1em;
-        width: 1em;
+        height: 2em;
+        width: 2em;
       }
 
       a.histogram-button:hover,
@@ -96,34 +120,39 @@ $svg-height: 200px;
         text-decoration: none;
         color: $text-color;
         border-radius: $border-radius;
-        background-color: #727272;
+        background-color: $btn-active-color;
       }
 
-      i {
-
-      }
     }
   }
   >.histogram {
-    border: 2px solid $border-color;
+    border: $border;
     border-radius: $border-radius;
-    height: $svg-height;
-    margin: 5px;
+    margin: $margin-size;
+    height: calc(100% - (2em + 57px + 20px));
+    -webkit-transition: all 0.25s ease-out;
+    -moz-transition: all 0.25s ease-out;
+    transition: all 0.25s ease-out;
 
     svg {
-      height: $svg-height;
+      height: 100%;
       border: 0;
       margin: 0;
+      padding: 0;
       overflow: hidden;
-
     }
+  }
+
+  >.histogram.nostats {
+    height: calc(100% - (2em + 15px));
+
   }
 
   >.histogram-stats {
     width: 100%;
 
     >div {
-      width: 300px;
+      width: $widget-min-width - ($border-size * 2);
       margin: 0 auto;
       ul {
         -webkit-column-count: 2;
@@ -140,18 +169,19 @@ $svg-height: 200px;
 
         text-align: right;
         padding: 0 0 0 0;
-        margin: 0 0 5px 0;
+        margin: 0 0 $margin-size 0;
 
         li {
           display: block;
           white-space: nowrap;
+          line-height: 0.5em;
 
           input {
             border: 0;
             padding: 0;
-            margin: 0 0 0 5px;
-            width: 60px;
-            background-color: $background-color;
+            margin: 0 0 0 $margin-size;
+            width: $stats-input-size;
+            background-color: transparent;
             color: $text-color;
           }
 

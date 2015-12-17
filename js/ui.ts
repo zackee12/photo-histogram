@@ -196,14 +196,17 @@ module PhotoHistogram {
             element.addEventListener('click', function() {
                 var stats = document.getElementById(hist.id.containerStats);
                 var button = document.getElementById(hist.id.btnStatsToggle);
+                var containerHist = document.getElementById(hist.id.containerHistogram);
                 var icon = <Element> button.firstChild;
                 if (stats.classList.contains('hidden')) {
                     stats.classList.remove('hidden');
                     icon.classList.remove('gray');
+                    containerHist.classList.remove('nostats');
                     button.title = 'Hide Stats Bar';
                 } else {
                     stats.classList.add('hidden');
                     icon.classList.add('gray');
+                    containerHist.classList.add('nostats');
                     button.title = 'Show Stats Bar';
                 }
             });
@@ -211,7 +214,6 @@ module PhotoHistogram {
             element = document.getElementById(this.id.selectChannels);
             // firefox doesn't fire change event on keyboard input until focus is changed
             element.addEventListener('change', function() {
-                console.log('fired');
                 hist.render();
             });
 
